@@ -1,0 +1,33 @@
+package io.stryfura.pokemanager.domain;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
+
+import java.io.Serializable;
+import java.util.List;
+
+import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_DEFAULT;
+
+@Entity
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonInclude(NON_DEFAULT)
+@Table(name = "trainer")
+public class Trainer implements Serializable {
+    @Id
+    @UuidGenerator
+    @Column(name = "id", unique = true, updatable = false)
+    private String id;
+    private String name;
+
+    @OneToMany
+    @JoinColumn(name = "trainer_id")
+    private List<Buddy> buddies;
+}
