@@ -21,15 +21,15 @@ public class MoveService {
         return moveRepo.findAll(PageRequest.of(page, size, Sort.by("name")));
     }
 
-    public Move getPokemon(String id){
+    public Move getMove(String id){
         return moveRepo.findById(id).orElseThrow(() -> new RuntimeException("Move not found"));
     }
 
-    public Move createPokemon(Move move){
+    public Move createMove(Move move){
         return moveRepo.save(move);
     }
 
-    public void deletePokemon(Move move){
+    public void deleteMove(Move move){
         //Assignment
     }
 }

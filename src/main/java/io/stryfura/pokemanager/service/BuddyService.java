@@ -29,7 +29,7 @@ import static java.nio.file.StandardCopyOption.REPLACE_EXISTING;
 public class BuddyService {
     private final BuddyRepo buddyRepo;
 
-    public Page<Buddy> getAllTrainers(int page, int size) {
+    public Page<Buddy> getAllBuddies(int page, int size) {
         return buddyRepo.findAll(PageRequest.of(page, size, Sort.by("name")));
     }
 

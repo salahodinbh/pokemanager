@@ -7,14 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
 import java.net.URI;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
-import static io.stryfura.pokemanager.constant.Constant.IMG_DIRECTORY;
-import static org.springframework.util.MimeTypeUtils.IMAGE_JPEG_VALUE;
-import static org.springframework.util.MimeTypeUtils.IMAGE_PNG_VALUE;
 
 @RestController
 @RequestMapping("/trainers")
@@ -25,7 +18,7 @@ public class TrainerResource {
     @PostMapping
     public ResponseEntity<Trainer> createTrainer(@RequestBody Trainer trainer) {
         //return ResponseEntity.ok().body(trainerService.createTrainer(trainer));
-        return ResponseEntity.created(URI.create("/trainers/userID")).body(trainerService.createTrainer(trainer));
+        return ResponseEntity.created(URI.create("/trainers/trainerID")).body(trainerService.createTrainer(trainer));
     }
 
     @GetMapping
